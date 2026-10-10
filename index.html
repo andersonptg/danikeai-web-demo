@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#05070b">
+<title>DaNikeAI — Teste Visual</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:radial-gradient(ellipse at center,#101c29 0%,#080b11 42%,#030407 100%);
+  display:grid;place-items:center;color:white;
+}
+main{position:relative;width:100vw;height:100vh;display:grid;place-items:center}
+.orb{
+  position:relative;width:min(68vw,360px);aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 32% 23%,#596773 0%,#303b48 17%,#141c26 43%,#05080e 75%,#010204 100%);
+  border:1px solid #536b7d66;
+  box-shadow:inset 8px 8px 20px #d9efff12,inset -18px -20px 28px #000e,0 0 50px #168bdb12;
+}
+.orb:before{
+  content:"";position:absolute;inset:4%;border-radius:50%;
+  border:1px solid #9ab8cc22;
+  background:linear-gradient(125deg,#ffffff08,transparent 40%,#0005);
+}
+.light{
+  position:absolute;left:12%;right:12%;top:49%;height:2px;
+  background:linear-gradient(90deg,transparent,#55bfff,#e9faff,#55bfff,transparent);
+  box-shadow:0 0 8px #53bfff,0 0 22px #238be955;
+  z-index:2;transition:.3s;
+}
+.orbit{
+  position:absolute;left:50%;top:50%;width:118%;height:38%;
+  border:1px solid #42baff88;border-radius:50%;
+  transform:translate(-50%,-50%) rotate(-32deg);
+  animation:spin 8s linear infinite;
+}
+.orbit:after{
+  content:"";position:absolute;right:7%;top:8%;width:6px;height:6px;
+  border-radius:50%;background:#b9efff;
+  box-shadow:0 0 12px #43baff,0 0 24px #238cff;
+}
+.orbit.two{
+  width:112%;height:55%;border-color:#65c7ff55;
+  transform:translate(-50%,-50%) rotate(55deg);
+  animation:spinback 12s linear infinite;
+}
+.orbit.three{
+  width:124%;height:25%;border-color:#4bb7f944;
+  transform:translate(-50%,-50%) rotate(72deg);
+  animation:spin 15s linear infinite;
+}
+.core{
+  position:absolute;left:50%;top:50%;width:4px;height:4px;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:#a8eaff;box-shadow:0 0 12px #55caff;
+}
+body.talk .light{
+  height:3px;background:linear-gradient(90deg,transparent,#fff,#fff,transparent);
+  box-shadow:0 0 12px #fff,0 0 32px #dff7ff;
+}
+body.talk .core{background:white;box-shadow:0 0 16px white}
+@keyframes spin{to{rotate:360deg}}
+@keyframes spinback{to{rotate:-360deg}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="orbit"></div>
+  <div class="orbit two"></div>
+  <div class="orbit three"></div>
+  <div class="orb">
+    <div class="light"></div>
+    <div class="core"></div>
+  </div>
+</main>
+<script>
+/* Toque na esfera para simular a luz branca durante a fala. */
+document.querySelector('.orb').addEventListener('click',()=>{
+  document.body.classList.add('talk');
+  setTimeout(()=>document.body.classList.remove('talk'),2500);
+});
+</script>
+</body>
+</html>
