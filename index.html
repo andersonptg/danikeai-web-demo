@@ -1007,6 +1007,72 @@ body.speaking .robot-eye {
   .robot-eye { animation: none; }
 }
 
+
+/* DA NIKEAI - PAINEL DE MARCA PREMIUM */
+.inner-orb .danike-brand-plate {
+  position: absolute;
+  z-index: 14;
+  left: 50%;
+  bottom: 5.5%;
+  width: 48%;
+  height: 12%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: translateX(-50%);
+  border: 1px solid rgba(135, 204, 239, .48);
+  border-radius: 9px;
+  background:
+    linear-gradient(180deg,
+      rgba(74, 111, 137, .28),
+      rgba(3, 9, 17, .94) 48%,
+      rgba(14, 27, 40, .92));
+  box-shadow:
+    inset 0 1px 2px rgba(220, 245, 255, .24),
+    inset 0 -3px 7px rgba(0, 0, 0, .7),
+    0 0 8px rgba(0, 145, 255, .19);
+  pointer-events: none;
+}
+
+.inner-orb .danike-brand-light {
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 1px;
+  background: linear-gradient(
+    90deg, transparent, #bceeff, #438fff, transparent
+  );
+  opacity: .9;
+}
+
+.inner-orb .danike-orb-logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 92%;
+  height: 88%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: .98;
+  filter:
+    drop-shadow(0 0 2px rgba(180, 225, 255, .35));
+  user-select: none;
+  pointer-events: none;
+}
+
+body.speaking .inner-orb .danike-brand-plate {
+  border-color: rgba(104, 204, 255, .85);
+  box-shadow:
+    inset 0 1px 3px rgba(220, 245, 255, .3),
+    0 0 10px rgba(0, 150, 255, .4);
+}
+
+
 </style>
 </head>
 
@@ -1059,6 +1125,15 @@ body.speaking .robot-eye {
         <div class="robot-face" aria-hidden="true">
           <span class="robot-eye left"></span>
           <span class="robot-eye right"></span>
+        </div>
+        <div class="danike-brand-plate" aria-hidden="true">
+          <span class="danike-brand-light"></span>
+          <img
+            class="danike-orb-logo"
+            src="assets/danikeai_logo_transparente.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 </div>
     </div>
