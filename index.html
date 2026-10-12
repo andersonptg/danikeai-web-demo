@@ -690,6 +690,339 @@ body.speaking .wing-piece::before {
     scroll-behavior: auto !important;
   }
 }
+
+/* DANIKEAI MAINTENANCE ORB PREMIUM V1 */
+
+/* Acabamento metálico e profundidade */
+.robot {
+  isolation: isolate;
+  filter: drop-shadow(0 12px 24px #0009);
+}
+
+.core {
+  filter: saturate(1.16) contrast(1.04);
+  box-shadow:
+    inset 0 0 0 2px #a8dfff25,
+    inset 0 0 0 5px #080e18,
+    inset 0 0 0 8px #244a6d,
+    inset -20px -24px 32px #000e,
+    inset 10px 8px 22px #b8eaff20,
+    0 0 0 3px #07182b,
+    0 0 24px #087bff70,
+    0 0 52px #087bff28;
+  transition: box-shadow .45s ease, filter .45s ease;
+}
+
+.core::before {
+  border-color: #9edfff65;
+  box-shadow:
+    inset 0 0 22px #087bff24,
+    0 0 12px #00cfff17;
+}
+
+.core::after {
+  background: linear-gradient(
+    90deg, transparent, #e8fbffbd, #8adfff45, transparent
+  );
+  filter: blur(5px);
+}
+
+.inner-orb {
+  border-color: #36baff;
+  background:
+    radial-gradient(ellipse at 32% 23%, #a8f0ff8c 0%, transparent 12%),
+    radial-gradient(circle at 38% 30%, #137dc9 0%, #0b2850 43%, #020712 78%);
+  box-shadow:
+    inset 0 0 28px #008bff80,
+    inset -9px -12px 22px #000b,
+    0 0 8px #00dfff,
+    0 0 22px #087bff72;
+  transition: box-shadow .4s ease, border-color .4s ease;
+}
+
+.globe-grid {
+  opacity: .88;
+  filter: drop-shadow(0 0 2px #00dfff70);
+}
+
+.globe-dot {
+  box-shadow:
+    0 0 5px #fff,
+    0 0 11px #00dfff,
+    0 0 20px #087bff;
+  animation: maintenanceDotPulse 2.8s ease-in-out infinite;
+}
+
+.dot-b { animation-delay: -.7s; }
+.dot-c { animation-delay: -1.4s; }
+.dot-d { animation-delay: -2.1s; }
+.dot-e { animation-delay: -.35s; }
+
+/* Asas magnéticas com reflexos mais refinados */
+.wing {
+  filter: drop-shadow(0 0 8px #087bff50);
+}
+
+.wing-piece {
+  background:
+    linear-gradient(118deg,
+      #e0f8ff 0%,
+      #536e87 8%,
+      #101d2d 23%,
+      #263f58 38%,
+      #050a12 57%,
+      #17344d 74%,
+      #02050a 92%);
+  box-shadow:
+    inset 0 0 0 1px #8bdcff50,
+    inset 0 0 12px #087bff25,
+    0 0 8px #007bff20;
+}
+
+.wing-piece::before {
+  background:
+    linear-gradient(135deg,
+      #b8f4ff 0%,
+      #1fbcff 8%,
+      transparent 20%,
+      transparent 70%,
+      #087bff 87%,
+      #ff2448 96%,
+      #e9fbff 100%);
+  background-size: 180% 180%;
+  animation: magneticShimmer 6s ease-in-out infinite;
+}
+
+.wing-piece::after {
+  width: 3px;
+  background: linear-gradient(
+    transparent, #bff8ff, #00dfff, #087bff, transparent
+  );
+  box-shadow: 0 0 8px #00dfff, 0 0 15px #087bff80;
+}
+
+.joint {
+  border-color: #75cfff;
+  box-shadow:
+    0 0 8px #008dff,
+    0 0 19px #008dff70,
+    inset 0 0 8px #000;
+}
+
+.wing-label {
+  color: #a0e5ff;
+  text-shadow: 0 0 7px #007bff, 0 0 15px #007bff70;
+}
+
+/* Energia orbital */
+.orbit {
+  border-color: #219affb8;
+  box-shadow:
+    0 0 8px #087bff55,
+    inset 0 0 8px #087bff20;
+  animation: orbitalBreath 5s ease-in-out infinite;
+}
+
+.orbit::after {
+  background: #d8fbff;
+  box-shadow: 0 0 8px #00dfff, 0 0 17px #087bff;
+}
+
+.orbit.inner {
+  border-color: #43bdff80;
+}
+
+.seam {
+  box-shadow:
+    0 0 6px #ff174d,
+    0 0 17px #ff123e75,
+    inset 0 0 9px #ff174d35;
+}
+
+.platform {
+  filter: drop-shadow(0 0 9px #087bff45);
+}
+
+.lower-light {
+  filter: saturate(1.25);
+}
+
+/* A esfera ganha energia durante a fala */
+body.speaking .core {
+  filter: saturate(1.35) brightness(1.08);
+  box-shadow:
+    inset 0 0 0 4px #080e18,
+    inset 0 0 0 8px #244a6d,
+    inset -15px -20px 30px #000,
+    inset 9px 8px 20px #84d9ff35,
+    0 0 0 3px #07182b,
+    0 0 28px #00cfff,
+    0 0 68px #087bff80;
+}
+
+body.speaking .inner-orb {
+  border-color: #d8fbff;
+  box-shadow:
+    inset 0 0 32px #00bfff,
+    0 0 28px #00dfff,
+    0 0 48px #087bff80;
+}
+
+@keyframes magneticShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes maintenanceDotPulse {
+  0%, 100% { opacity: .65; transform: scale(.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes orbitalBreath {
+  0%, 100% { opacity: .72; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-dot,
+  .wing-piece::before,
+  .orbit {
+    animation: none !important;
+  }
+}
+
+
+/* DANIKEAI ROBOT FACE V1 */
+
+/* Mantém a esfera e acrescenta uma face mecânica central */
+.inner-orb {
+  position: relative;
+  overflow: hidden;
+}
+
+.robot-face {
+  position: absolute;
+  z-index: 12;
+  width: 70%;
+  height: 48%;
+  left: 15%;
+  top: 27%;
+  box-sizing: border-box;
+  border: 1px solid #76dcff;
+  border-radius: 43% 43% 35% 35% / 35% 35% 42% 42%;
+  background:
+    radial-gradient(ellipse at 50% 8%, #91eaff36, transparent 42%),
+    linear-gradient(145deg, #38556b 0%, #142638 28%, #07111e 62%, #1b3449 100%);
+  box-shadow:
+    inset 0 2px 5px #d4f7ff35,
+    inset 0 -7px 12px #000b,
+    0 0 7px #00cfff90,
+    0 0 18px #087bff50;
+  transform: perspective(150px) rotateX(-4deg);
+  pointer-events: none;
+}
+
+.robot-brow {
+  position: absolute;
+  top: 17%;
+  left: 17%;
+  width: 66%;
+  height: 13%;
+  border-top: 2px solid #b9f3ff;
+  border-radius: 50%;
+  opacity: .85;
+  box-shadow: 0 -2px 7px #00cfff70;
+}
+
+.robot-eye {
+  position: absolute;
+  top: 34%;
+  width: 23%;
+  height: 16%;
+  border: 1px solid #b9f7ff;
+  border-radius: 45% 45% 38% 38%;
+  background: linear-gradient(180deg, #e4ffff 0%, #51e5ff 22%, #008dff 66%, #073d92 100%);
+  box-shadow:
+    0 0 5px #fff,
+    0 0 10px #00dfff,
+    0 0 19px #087bff;
+  animation: danikeaiRobotEyes 3s ease-in-out infinite;
+}
+
+.robot-eye.left {
+  left: 15%;
+  transform: skewY(5deg);
+}
+
+.robot-eye.right {
+  right: 15%;
+  transform: skewY(-5deg);
+  animation-delay: .15s;
+}
+
+.robot-nose {
+  position: absolute;
+  left: 47%;
+  top: 51%;
+  width: 6%;
+  height: 11%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #172c40, #a5eaff, #274d6a);
+  box-shadow: 0 0 5px #00bfff70;
+}
+
+.robot-mouth {
+  position: absolute;
+  left: 31%;
+  top: 68%;
+  width: 38%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border: 1px solid #4b92b8;
+  border-radius: 3px 3px 7px 7px;
+  background: #030a13;
+  box-shadow: inset 0 0 6px #007bff45;
+}
+
+.robot-mouth i {
+  display: block;
+  width: 2px;
+  height: 60%;
+  border-radius: 2px;
+  background: #65dfff;
+  box-shadow: 0 0 4px #00bfff;
+}
+
+.robot-jaw {
+  position: absolute;
+  left: 25%;
+  bottom: 5%;
+  width: 50%;
+  height: 8%;
+  border-bottom: 2px solid #7cdfff;
+  border-radius: 50%;
+  opacity: .8;
+}
+
+@keyframes danikeaiRobotEyes {
+  0%, 100% { filter: brightness(.85); }
+  50% { filter: brightness(1.3); }
+}
+
+body.speaking .robot-eye {
+  background: linear-gradient(180deg, #fff 0%, #d9ffff 22%, #fff 50%, #6deaff 100%);
+  box-shadow: 0 0 8px #fff, 0 0 18px #00dfff, 0 0 28px #087bff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot-eye { animation: none; }
+}
+
 </style>
 </head>
 
@@ -737,7 +1070,19 @@ body.speaking .wing-piece::before {
         <i class="globe-dot dot-c"></i>
         <i class="globe-dot dot-d"></i>
         <i class="globe-dot dot-e"></i>
-      </div>
+
+        <!-- DANIKEAI ROBOT FACE V1 -->
+        <div class="robot-face" aria-hidden="true">
+          <span class="robot-brow"></span>
+          <span class="robot-eye left"></span>
+          <span class="robot-eye right"></span>
+          <span class="robot-nose"></span>
+          <span class="robot-mouth">
+            <i></i><i></i><i></i><i></i><i></i>
+          </span>
+          <span class="robot-jaw"></span>
+        </div>
+</div>
     </div>
 
     <div class="lower-shell"></div>
