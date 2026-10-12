@@ -892,9 +892,8 @@ body.speaking .inner-orb {
 }
 
 
-/* DANIKEAI ROBOT FACE V1 */
 
-/* Mantém a esfera e acrescenta uma face mecânica central */
+/* DANIKEAI ROBOT FACE V2 - PREMIUM VISOR */
 .inner-orb {
   position: relative;
   overflow: hidden;
@@ -903,120 +902,105 @@ body.speaking .inner-orb {
 .robot-face {
   position: absolute;
   z-index: 12;
-  width: 70%;
-  height: 48%;
-  left: 15%;
-  top: 27%;
+  left: 10%;
+  top: 32%;
+  width: 80%;
+  height: 37%;
   box-sizing: border-box;
-  border: 1px solid #76dcff;
-  border-radius: 43% 43% 35% 35% / 35% 35% 42% 42%;
+  overflow: hidden;
+  border: 1px solid rgba(112, 202, 255, .7);
+  border-radius: 42% 42% 35% 35% / 35% 35% 45% 45%;
   background:
-    radial-gradient(ellipse at 50% 8%, #91eaff36, transparent 42%),
-    linear-gradient(145deg, #38556b 0%, #142638 28%, #07111e 62%, #1b3449 100%);
+    linear-gradient(180deg, rgba(91, 151, 183, .25), transparent 24%),
+    linear-gradient(135deg, #172a3b 0%, #050b13 45%, #101e2d 75%, #263d50 100%);
   box-shadow:
-    inset 0 2px 5px #d4f7ff35,
-    inset 0 -7px 12px #000b,
-    0 0 7px #00cfff90,
-    0 0 18px #087bff50;
-  transform: perspective(150px) rotateX(-4deg);
+    inset 0 1px 2px rgba(230, 249, 255, .5),
+    inset 0 -5px 12px rgba(0, 0, 0, .9),
+    0 0 5px rgba(0, 190, 255, .6),
+    0 0 14px rgba(0, 112, 255, .22);
+  transform: perspective(220px) rotateX(-5deg);
   pointer-events: none;
 }
 
-.robot-brow {
+.robot-face::before {
+  content: "";
   position: absolute;
-  top: 17%;
-  left: 17%;
-  width: 66%;
-  height: 13%;
-  border-top: 2px solid #b9f3ff;
+  left: 13%;
+  right: 13%;
+  top: 13%;
+  height: 1px;
+  background: linear-gradient(
+    90deg, transparent, #b9edff, #5cbdff, transparent
+  );
+  opacity: .8;
+}
+
+.robot-face::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: 12%;
+  height: 2px;
   border-radius: 50%;
-  opacity: .85;
-  box-shadow: 0 -2px 7px #00cfff70;
+  background: #3f9dc7;
+  box-shadow: 0 0 7px rgba(0, 174, 255, .55);
+  opacity: .75;
+}
+
+.robot-brow,
+.robot-nose,
+.robot-mouth,
+.robot-jaw {
+  display: none;
 }
 
 .robot-eye {
   position: absolute;
-  top: 34%;
-  width: 23%;
-  height: 16%;
-  border: 1px solid #b9f7ff;
-  border-radius: 45% 45% 38% 38%;
-  background: linear-gradient(180deg, #e4ffff 0%, #51e5ff 22%, #008dff 66%, #073d92 100%);
+  top: 39%;
+  width: 24%;
+  height: 12%;
+  border: 1px solid rgba(203, 248, 255, .9);
+  border-radius: 50% 50% 42% 42% / 65% 65% 35% 35%;
+  background: linear-gradient(
+    180deg, #f3ffff 0%, #a3f1ff 18%, #21bfff 48%, #0871df 78%, #043b79 100%
+  );
   box-shadow:
-    0 0 5px #fff,
-    0 0 10px #00dfff,
-    0 0 19px #087bff;
-  animation: danikeaiRobotEyes 3s ease-in-out infinite;
+    0 0 3px #ffffff,
+    0 0 8px #21cfff,
+    0 0 15px rgba(0, 130, 255, .85);
+  animation: danikeaiRobotEyes 3.2s ease-in-out infinite;
 }
 
 .robot-eye.left {
-  left: 15%;
-  transform: skewY(5deg);
+  left: 17%;
+  transform: skewY(3deg);
 }
 
 .robot-eye.right {
-  right: 15%;
-  transform: skewY(-5deg);
+  right: 17%;
+  transform: skewY(-3deg);
   animation-delay: .15s;
 }
 
-.robot-nose {
-  position: absolute;
-  left: 47%;
-  top: 51%;
-  width: 6%;
-  height: 11%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #172c40, #a5eaff, #274d6a);
-  box-shadow: 0 0 5px #00bfff70;
-}
-
-.robot-mouth {
-  position: absolute;
-  left: 31%;
-  top: 68%;
-  width: 38%;
-  height: 12%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  padding: 0 4px;
-  box-sizing: border-box;
-  border: 1px solid #4b92b8;
-  border-radius: 3px 3px 7px 7px;
-  background: #030a13;
-  box-shadow: inset 0 0 6px #007bff45;
-}
-
-.robot-mouth i {
-  display: block;
-  width: 2px;
-  height: 60%;
-  border-radius: 2px;
-  background: #65dfff;
-  box-shadow: 0 0 4px #00bfff;
-}
-
-.robot-jaw {
-  position: absolute;
-  left: 25%;
-  bottom: 5%;
-  width: 50%;
-  height: 8%;
-  border-bottom: 2px solid #7cdfff;
-  border-radius: 50%;
-  opacity: .8;
-}
-
 @keyframes danikeaiRobotEyes {
-  0%, 100% { filter: brightness(.85); }
-  50% { filter: brightness(1.3); }
+  0%, 100% { filter: brightness(.82); opacity: .88; }
+  50% { filter: brightness(1.3); opacity: 1; }
+}
+
+body.speaking .robot-face {
+  box-shadow:
+    inset 0 1px 3px rgba(230, 249, 255, .6),
+    inset 0 -5px 12px rgba(0, 0, 0, .9),
+    0 0 9px rgba(0, 220, 255, .8),
+    0 0 22px rgba(0, 112, 255, .5);
 }
 
 body.speaking .robot-eye {
-  background: linear-gradient(180deg, #fff 0%, #d9ffff 22%, #fff 50%, #6deaff 100%);
-  box-shadow: 0 0 8px #fff, 0 0 18px #00dfff, 0 0 28px #087bff;
+  background: linear-gradient(
+    180deg, #fff 0%, #d8ffff 35%, #63eaff 75%, #138dff 100%
+  );
+  box-shadow: 0 0 6px #fff, 0 0 15px #00dfff, 0 0 25px #087bff;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1071,16 +1055,10 @@ body.speaking .robot-eye {
         <i class="globe-dot dot-d"></i>
         <i class="globe-dot dot-e"></i>
 
-        <!-- DANIKEAI ROBOT FACE V1 -->
+        <!-- DANIKEAI ROBOT FACE V2 -->
         <div class="robot-face" aria-hidden="true">
-          <span class="robot-brow"></span>
           <span class="robot-eye left"></span>
           <span class="robot-eye right"></span>
-          <span class="robot-nose"></span>
-          <span class="robot-mouth">
-            <i></i><i></i><i></i><i></i><i></i>
-          </span>
-          <span class="robot-jaw"></span>
         </div>
 </div>
     </div>
